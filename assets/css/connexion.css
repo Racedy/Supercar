@@ -1,0 +1,191 @@
+/* Styles généraux */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8e6e1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Card de connexion */
+.connexion-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 60px 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 480px;
+    width: 100%;
+}
+
+/* Titre */
+.connexion-card h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.connexion-card .text-muted {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Labels */
+.form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+/* Inputs */
+.form-control {
+    border: 1px solid #d1d1d1;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666666;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #E67E22;
+    box-shadow: 0 0 0 0.2rem rgba(212, 135, 79, 0.15);
+}
+
+.form-control::placeholder {
+    color: #cccccc;
+    font-size: 13px;
+}
+
+/* Wrapper du mot de passe avec icône */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .form-control {
+    padding-right: 45px;
+}
+
+.password-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999999;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Checkbox personnalisé */
+.form-check-input {
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+}
+
+.form-check-input:checked {
+    background-color: #E67E22;
+    border-color: #E67E22;
+}
+
+.form-check-label {
+    font-size: 13px;
+    color: #666666;
+    margin-left: 5px;
+}
+
+/* Lien mot de passe oublié */
+.forgot-password {
+    font-size: 13px;
+    color: #E67E22;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #b86f3f;
+}
+
+/* Bouton de connexion */
+.btn-connexion {
+    background-color: #E67E22;
+    border: none;
+    border-radius: 25px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-connexion:hover {
+    background-color: #E67E22;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.btn-connexion:active {
+    transform: translateY(0);
+}
+
+/* Séparateur */
+.separator {
+    position: relative;
+    text-align: center;
+}
+
+.separator::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background-color: #d1d1d1;
+}
+
+.separator::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background-color: #d1d1d1;
+}
+
+.separator span {
+    font-size: 13px;
+    color: #999999;
+    background-color: #ffffff;
+    padding: 0 10px;
+}
+
+/* Texte du compte */
+.account-text {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 0;
+}
+
+.create-account {
+    color: #E67E22;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.create-account:hover {
+    color: #E67E22;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .connexion-card {
+        padding: 40px 30px;
+        margin: 20px;
+    }
+
+    .connexion-card h1 {
+        font-size: 24px;
+    }
+}

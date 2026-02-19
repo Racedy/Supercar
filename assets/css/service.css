@@ -1,0 +1,89 @@
+/* Couleurs et variables */
+:root {
+    --primary-orange: #E67E22;
+    --bg-light: #f8f9fa;
+}
+
+/* ... existing code ... */
+
+/* Style du texte de détail */
+/* Style de la barre verticale orange */
+.barre-verticale {
+    width: 5px;
+    /* Un peu plus épaisse pour plus de visibilité */
+    height: 80px;
+    background-color: #E67E22;
+    /* Ton orange */
+    flex-shrink: 0;
+    /* Empêche la barre de s'écraser */
+}
+
+/* Section Image (Hero) */
+.hero-img {
+    padding: 0;
+    background-color: #f0f0f0;
+    height: 50vh;
+    /* 50% de la hauteur de l'écran */
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.hero-img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hero Text Overlay */
+.hero-text {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+    max-width: 600px;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Cache le détail par défaut */
+.process-detail {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    padding: 0 15px;
+}
+
+/* Classe activée par le clic */
+.process-detail.show {
+    max-height: 400px;
+    /* Augmenté pour laisser de la place à l'image */
+    opacity: 1;
+}
+
+/* Style du bouton + */
+.btn-toggle-plus {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    padding: 0;
+}
+
+/* Optionnel : fond gris au survol de l'en-tete */
+.bg-light:hover {
+    background-color: #e9ecef !important;
+}
