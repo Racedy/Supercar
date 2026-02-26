@@ -1,85 +1,90 @@
 CREATE DATABASE supercar;
-
-/* Table marques */
-CREATE TABLE marques (
-    id_marque INT AUTO_INCREMENT PRIMARY KEY,
-    nom_marque VARCHAR(200) NOT NULL
+ 
+USE supercar;
+ 
+CREATE TABLE marques(
+   id_marque INT AUTO_INCREMENT,
+   nom_marque VARCHAR(200) NOT NULL,
+   PRIMARY KEY(id_marque)
 );
-
-/* Table Voiture */
-CREATE TABLE Voiture (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(100) NOT NULL,
-    Id_Marque INT,
-    prix DECIMAL(12,2),
-    annee YEAR,
-    kilometrage INT,
-    disponibilite BOOLEAN DEFAULT TRUE,
-    transmission VARCHAR(50),
-    carburant VARCHAR(50),
-    puissance INT,
-    couleur VARCHAR(50),
-    provenance VARCHAR(50),
-    description TEXT,
-    FOREIGN KEY (Id_Marque) REFERENCES marques(id_marque)
+ 
+CREATE TABLE voiture(
+   idvoiture INT AUTO_INCREMENT PRIMARY KEY,
+   modele VARCHAR(100) NOT NULL,
+   prix DECIMAL(15,2) NOT NULL CHECK (prix >= 0),
+   datesortie DATE NOT NULL,
+   kilometrage INT NOT NULL,
+   disponibilite BOOLEAN NOT NULL,
+   boite_de_vitesse VARCHAR(50) NOT NULL,
+   carburant VARCHAR(50) NOT NULL,
+   puissance INT,
+   couleur VARCHAR(50),
+   provenance VARCHAR(100),
+   details TEXT,
+   id_marque INT NOT NULL,
+   FOREIGN KEY(id_marque) REFERENCES marques(id_marque)
 );
-
-/* Table images_voiture */
-CREATE TABLE images_voiture (
-    id_image INT AUTO_INCREMENT PRIMARY KEY,
-    id_voiture INT,
-    chemin_image VARCHAR(255) NOT NULL,
-    ordre INT DEFAULT 0,
-    FOREIGN KEY (id_voiture) REFERENCES Voiture(Id) ON DELETE CASCADE
+ 
+CREATE TABLE image(
+   id_image INT AUTO_INCREMENT PRIMARY KEY,
+   url_image VARCHAR(255) NOT NULL,
+   idvoiture INT NOT NULL,
+   FOREIGN KEY(idvoiture) REFERENCES voiture(idvoiture)
+   ON DELETE CASCADE
 );
-
-/* Table Client */
-CREATE TABLE Client (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    Nom VARCHAR(100),
-    Prenom VARCHAR(100),
-    Mail VARCHAR(150),
-    Telephone VARCHAR(20),
-    Adresse VARCHAR(255),
-    Mots_passe VARCHAR(255)
+ 
+CREATE TABLE client(
+   id_client INT AUTO_INCREMENT PRIMARY KEY,
+   nom VARCHAR(100) NOT NULL,
+   prenom VARCHAR(100) NOT NULL,
+   mail VARCHAR(150) NOT NULL UNIQUE,
+   telephone VARCHAR(50),
+   adresse VARCHAR(255),
+   mots_passe VARCHAR(255) NOT NULL
 );
-
-/* Table Service */
-CREATE TABLE Service (
-    id_service INT PRIMARY KEY AUTO_INCREMENT,
-    nom_service VARCHAR(60),
-    titre_service VARCHAR(100),
-    description_service TEXT,
-    prix_service DECIMAL(12,2),
-    image_service VARCHAR(60)
+ 
+CREATE TABLE service(
+   id_service INT AUTO_INCREMENT PRIMARY KEY,
+   nom_service VARCHAR(60) NOT NULL,
+   titre_service VARCHAR(100) NOT NULL,
+   description_service TEXT,
+   prix_service DECIMAL(15,2) NOT NULL CHECK (prix_service >= 0),
+   image_service VARCHAR(255)
 );
-
-/* Table demande_essai */
-CREATE TABLE demande_essai (
-    id_demande INT AUTO_INCREMENT PRIMARY KEY,
-    id_client INT,
-    id_voiture INT,
-    date_essaye DATE,
-    statut ENUM('En cours', 'Valider', 'Annuler'),
-    FOREIGN KEY (id_client) REFERENCES Client(Id),
-    FOREIGN KEY (id_voiture) REFERENCES Voiture(Id)
+ 
+CREATE TABLE demande_essai(
+   id_demande INT AUTO_INCREMENT PRIMARY KEY,
+   date_essai DATE NOT NULL,
+   statut ENUM('en_cours','valide','annule') NOT NULL,
+   idvoiture INT NOT NULL,
+   id_client INT NOT NULL,
+   FOREIGN KEY(idvoiture) REFERENCES voiture(idvoiture),
+   FOREIGN KEY(id_client) REFERENCES client(id_client)
 );
-
-/* Table Contenue */
-CREATE TABLE Contenue (
-    id_contenue INT AUTO_INCREMENT PRIMARY KEY,
-    titre VARCHAR(200),
-    texte TEXT,
-    page VARCHAR(100)
+ 
+CREATE TABLE contenu(
+   id_contenu INT AUTO_INCREMENT PRIMARY KEY,
+   titre VARCHAR(200) NOT NULL,
+   texte TEXT,
+   lignecontenu INT,
+   page VARCHAR(100)
 );
-
-/* Table contact */
-CREATE TABLE contact (
-    id_contact INT AUTO_INCREMENT PRIMARY KEY,
-    prenom VARCHAR(100) NOT NULL,
-    nom VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL,
-    telephone VARCHAR(20),
-    message TEXT NOT NULL,
-    date_envoi TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ 
+CREATE TABLE message(
+   id_message INT AUTO_INCREMENT PRIMARY KEY,
+   message TEXT NOT NULL,
+   date_envoi DATETIME NOT NULL,
+   id_client INT NOT NULL,
+   FOREIGN KEY(id_client) REFERENCES client(id_client)
+   ON DELETE CASCADE
+);
+ 
+CREATE TABLE approprier(
+   idvoiture INT,
+   id_service INT,
+   PRIMARY KEY(idvoiture, id_service),
+   FOREIGN KEY(idvoiture) REFERENCES voiture(idvoiture)
+   ON DELETE CASCADE,
+   FOREIGN KEY(id_service) REFERENCES service(id_service)
+   ON DELETE CASCADE
 );

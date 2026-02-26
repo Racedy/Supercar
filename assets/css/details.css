@@ -308,20 +308,26 @@
 }
 
 .btn-orange-outline {
+    display: inline-block;
+    padding: 10px 25px;
     background-color: transparent;
     color: #E67E22;
     border: 2px solid #E67E22;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 15px;
+    border-radius: 50px;
     font-weight: 600;
-    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
     transition: all 0.3s ease;
-    width: 100%;
+    width: auto;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .btn-orange-outline:hover {
-    background-color: rgba(230, 126, 34, 0.1);
+    background-color: #E67E22;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
 }
 
 /* ============================================

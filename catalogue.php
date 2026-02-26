@@ -84,7 +84,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="price">29 000 000 RS</span>
-                        <a href="details.php" class="btn btn-orange-outline">Voir détails</a>
+                        <a href="details.php?id=1" class="btn btn-orange-outline">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="price">35 000 000 RS</span>
-                        <a href="details.php" class="btn btn-orange-outline">Voir détails</a>
+                        <a href="details.php?id=2" class="btn btn-orange-outline">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="price">18 000 000 RS</span>
-                        <a href="details.php" class="btn btn-orange-outline">Voir détails</a>
+                        <a href="details.php?id=3" class="btn btn-orange-outline">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="price">32 000 000 RS</span>
-                        <a href="details.php" class="btn btn-orange-outline">Voir détails</a>
+                        <a href="details.php?id=4" class="btn btn-orange-outline">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="price">15 000 000 RS</span>
-                        <a href="details.php" class="btn btn-orange-outline">Voir détails</a>
+                        <a href="details.php?id=5" class="btn btn-orange-outline">Voir détails</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <span class="price">8 500 000 RS</span>
-                        <a href="details.php" class="btn btn-orange-outline">Voir détails</a>
+                        <a href="details.php?id=6" class="btn btn-orange-outline">Voir détails</a>
                     </div>
                 </div>
             </div>
